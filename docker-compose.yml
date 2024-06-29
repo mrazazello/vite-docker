@@ -1,6 +1,10 @@
 version: "3.7"
 
 services:
+  web:
+    build: .
+    ports:
+      - ${APP_HTTP_PORT}:5174
 
   client:
       build:
@@ -12,7 +16,7 @@ services:
       volumes:
         - ./:/var/app
       working_dir: /var/app
-      entrypoint: yarn run start
+      entrypoint: yarn run dev
 
 
 
