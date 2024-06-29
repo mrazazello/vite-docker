@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+  client:
+      build:
+         args:
+           CONTAINER_UID: ${CONTAINER_UID}
+           CONTAINER_GID: ${CONTAINER_GID}
+         context: .
+      restart: always
+      volumes:
+        - ./:/var/app
+      working_dir: /var/app
+      entrypoint: yarn run start
+
+
+
+
